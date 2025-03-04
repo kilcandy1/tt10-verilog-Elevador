@@ -1,6 +1,6 @@
 # Tiny Tapeout project information
 project:
-  title:        "elevator"      # Project title
+  title:        "Elevator"      # Project title
   author:       "karina rosas"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "3-story elevator"      # One line description of what your project does
@@ -11,7 +11,7 @@ project:
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "Elevador"
+  top_module:  "tt_um_Elevador"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
@@ -24,23 +24,23 @@ project:
 pinout:
   # Inputs
   ui[0]: "clk"
-  ui[1]: "botón1"
-  ui[2]: "boton2"
-  ui[3]: "dato1"
-  ui[4]: "dato2"
-  ui[5]: "dato3"
-  ui[6]: "dato4"
+  ui[1]: "botón"
+  ui[2]: "boton"
+  ui[3]: "dato"
+  ui[4]: "dato"
+  ui[5]: "dato"
+  ui[6]: "dato"
   ui[7]: ""
 
   # Outputs
   uo[0]: "motorsubir"
   uo[1]: "motorbajar"
-  uo[2]: "display 0"
-  uo[3]: "display 1"
-  uo[4]: "display 2"
-  uo[5]: "display 3"
-  uo[6]: "display 4"
-  uo[7]: "display 5"
+  uo[2]: "display "
+  uo[3]: "display "
+  uo[4]: "display "
+  uo[5]: "display "
+  uo[6]: "display "
+  uo[7]: "display "
 
   # Bidirectional pins
   uio[0]: ""
