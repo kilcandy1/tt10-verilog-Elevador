@@ -2,7 +2,7 @@
 // Módulo Elevador en Verilog
 `timescale 1ns/1ps
  
-module Elevador(
+module tt_um_Elevador(
     input [1:0] boton,
     input clk,
     output reg motorsubir,
