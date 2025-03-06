@@ -11,7 +11,7 @@ project:
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "Elevador"
+  top_module:  "tt_um_Elevador"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
@@ -46,13 +46,13 @@ pinout:
   uo[7]: "display "
 
   # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
+  uio[0]: "display "
+  uio[1]: "display "
+  uio[2]: "display "
+  uio[3]: "display "
+  uio[4]: "display "
+  uio[5]: "display "
+  uio[6]: "display "
   uio[7]: ""
 
 # Do not change!
