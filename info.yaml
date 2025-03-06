@@ -33,7 +33,7 @@ pinout:
   ui[4]: "dato 1"
   ui[5]: "dato 2"
   ui[6]: "dato 3"
-  ui[7]: ""
+  ui[7]: "dato 4""
 
   # Outputs
   uo[0]: "motorsubir"
