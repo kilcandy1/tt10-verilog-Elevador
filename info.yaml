@@ -1,6 +1,6 @@
 # Tiny Tapeout project information
 project:
-  title:        "Elevator"      # Project title
+  title:        "Elevador"      # Project title
   author:       "karina rosas"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "3-story elevator"      # One line description of what your project does
@@ -18,6 +18,9 @@ project:
   # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
   source_files:
     - "Elevador.v"
+    - "tb_Elevador.v"
+    
+    
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
