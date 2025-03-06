@@ -26,7 +26,7 @@ project:
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
   # Inputs
-  ui[0]: "clk"
+  ui[0]: "clock_hz"
   ui[1]: "boton 0"
   ui[2]: "boton 1"
   ui[3]: "dato 0"
