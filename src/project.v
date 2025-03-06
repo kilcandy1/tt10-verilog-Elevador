@@ -3,25 +3,119 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-`default_nettype none
 
-module tt_um_example (
-    input  wire [7:0] ui_in,    // Dedicated inputs
-    output wire [7:0] uo_out,   // Dedicated outputs
-    input  wire [7:0] uio_in,   // IOs: Input path
-    output wire [7:0] uio_out,  // IOs: Output path
-    output wire [7:0] uio_oe,   // IOs: Enable path (active high: 0=input, 1=output)
-    input  wire       ena,      // always 1 when the design is powered, so you can ignore it
-    input  wire       clk,      // clock
-    input  wire       rst_n     // reset_n - low to reset
+// Módulo Elevador en Verilog
+`timescale 1ns/1ps
+ 
+module tt_um_Elevador(
+    input [1:0] boton,
+    input clock_hz,
+    output reg motorsubir,
+    output reg motorbajar,
+    input [3:0] dato,
+    output reg [6:0] display
 );
+    
+ parameter PISO1 = 2'b00, PISO2 = 2'b01, PISO3 = 2'b10;
+    reg [1:0] presente, futuro;    
 
-  // All output pins must be assigned. If not used, assign to 0.
-  assign uo_out  = ui_in + uio_in;  // Example: ou_out is the sum of ui_in and uio_in
-  assign uio_out = 0;
-  assign uio_oe  = 0;
-
-  // List all unused inputs to prevent warnings
-  wire _unused = &{ena, clk, rst_n, 1'b0};
-
+//typedef enum logic [1:0] {PISO1, PISO2, PISO3} state_type;
+    //state_type presente, futuro;
+    
+    // Lógica para el display 7 segmentos
+    always @(*) begin
+        case (dato)
+            4'b0001: display = 7'b1001111;
+            4'b0010: display = 7'b0010010;
+            4'b0011: display = 7'b0000110;
+            default: display = 7'b1111111;
+        endcase
+    end
+    
+    // Actualización de estado en flanco de reloj
+    always @(posedge clk) begin
+        presente <= futuro;
+    end
+    
+    // Lógica de transición de estados
+    always @(*) begin
+        case (presente)
+            PISO1: begin
+                if (boton == 2'b10) begin
+                    futuro = PISO2;
+                    motorsubir = 1;
+                    motorbajar = 0;
+                end else begin
+                    futuro = PISO1;
+                    motorsubir = 0;
+                    motorbajar = 0;
+                end
+            end
+            PISO2: begin
+                if (boton == 2'b10) begin
+                    futuro = PISO3;
+                    motorsubir = 1;
+                    motorbajar = 0;
+                end else begin
+                    futuro = PISO1;
+                    motorsubir = 0;
+                    motorbajar = 1;
+                end
+            end
+            PISO3: begin
+                if (boton == 2'b01) begin
+                    futuro = PISO2;
+                    motorsubir = 0;
+                    motorbajar = 1;
+                end else begin
+                    futuro = PISO3;
+                    motorsubir = 0;
+                    motorbajar = 0;
+                end
+            end
+            default: begin
+                futuro = PISO1;
+                motorsubir = 0;
+                motorbajar = 0;
+            end
+        endcase
+    end
 endmodule
+ 
+// Testbench para el módulo Elevador
+module tb_Elevador;
+    reg [1:0] boton;
+    reg clk;
+    reg [3:0] dato;
+    wire motorsubir, motorbajar;
+    wire [6:0] display;
+    
+    Elevador uut (
+        .boton(boton),
+        .clk(clk),
+        .motorsubir(motorsubir),
+        .motorbajar(motorbajar),
+        .dato(dato),
+        .display(display)
+    );
+    
+    always #5 clk = ~clk; // Generador de reloj
+    
+    initial begin
+        $dumpfile("waveform.vcd");
+        $dumpvars(0, tb_Elevador);
+        
+        clk = 0;
+        boton = 2'b00;
+        dato = 4'b0001;
+        
+        #10 boton = 2'b10; // Subir a PISO2
+        #10 boton = 2'b10; // Subir a PISO3
+        #10 boton = 2'b01; // Bajar a PISO2
+        #10 boton = 2'b01; // Bajar a PISO1
+        #20;
+        
+        $finish;
+    end
+endmodule
+
