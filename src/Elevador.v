@@ -4,7 +4,7 @@
  
 module tt_um_Elevador(
     input [1:0] boton,
-    input clk,
+    input clock_hz,
     output reg motorsubir,
     output reg motorbajar,
     input [3:0] dato,
