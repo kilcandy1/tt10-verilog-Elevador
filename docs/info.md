@@ -53,3 +53,9 @@ DC motors: The direct current motor, also called direct current motor, (DC motor
 7-segment display: It is an opto-electronic device that allows numbers from 0 to 9 to be displayed. There are two types of display, common cathode and common anode.
 
 List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+2 buttons
+
+1 DC motors: T
+
+one 7-segment display
+
