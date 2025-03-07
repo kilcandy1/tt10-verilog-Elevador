@@ -16,6 +16,8 @@ will allow us to move the elevator either up or down. We will also use a 7-segme
 ## How to test
 o build and operate the three-story elevator system using the components you described (two push buttons, DC motors, L298N H-bridge, and a 7-segment display), we can break down the process into several key steps. Here's a guide on how you can use the components to control the elevator and display its floor number.
 
+##Explain how to use your project
+
 Components Needed:
 Two Push Buttons: These will be the input controls for the elevator.
 
