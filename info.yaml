@@ -2,7 +2,7 @@
 project:
   title:        "project Elevador"      # Project title
   author:       "karina rosas"      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  discord:      "karina rosas"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "3-story elevator"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
